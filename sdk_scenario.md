@@ -7,7 +7,8 @@
 # Сценарии работы SDK
 
 #### [Базовый сценарий](https://sdkpay.github.io/3dsSdkAndroidDoc/sdk_scenario#базовый-сценарий-для-sdk)
-#### [Быстрый сценарий](https://sdkpay.github.io/3dsSdkAndroidDoc/sdk_scenario#Быстрый-сценарий)
+#### [Быстрый сценарий](https://sdkpay.github.io/3dsSdkAndroidDoc/sdk_scenario#быстрый-сценарий-для-sdk)
+
 <br>
 
 ## Базовый сценарий для SDK
@@ -16,9 +17,9 @@
 
 1. [register.do](https://ecomtest.sberbank.ru/doc#tag/basicServices/operation/register) - Запрос предназначен для регистрации (создания) заказа в Шлюзе. При успешной обработке запроса заказу присваивается номер (идентификатор), уникальный в рамках Шлюза. Метод используется для регистрации заказа с последующией оплатой любым способом.
 2. [paymentOrder.do](https://ecomtest.sberbank.ru/doc#tag/paymentServices/operation/paymentOrder) - Запрос предназначен для блокировки средств на карте Плательщика для проведения дальнейших расчетов между банками-участниками.
-3. Работа 3DS SDK со сценарием [ThreedsMethodScenario](https://sdkpay.github.io/3dsSdkAndroidDoc/sdk_classes#Класс_ThreedsMethodScenario) - Запускается SDK. Приложение мерчанта ожидает успех/ошибку аутентификации плательщика.
+3. Работа 3DS SDK со сценарием [ThreedsMethodScenario](https://sdkpay.github.io/3dsSdkAndroidDoc/sdk_classes#класс-threedsmethodscenario) - Запускается SDK. Приложение мерчанта ожидает успех/ошибку аутентификации плательщика.
 4. [finish3dsMethod.do](https://ecomtest.sberbank.ru/doc#tag/additionalThreeDSServices/operation/finish3dsMethod) - Запрос предназначен для завершения 3DS аутентификации Плательщика при проведении операции оплаты.
-5. Работа 3DS SDK со сценарием [ThreedsChallengesScenario](https://sdkpay.github.io/3dsSdkAndroidDoc/sdk_classes#Класс_ThreedsChallengesScenario) - Запускается SDK. Пользователь проходит челленджи, мерчант ожидает успех/ошибку.
+5. Работа 3DS SDK со сценарием [ThreedsChallengesScenario](https://sdkpay.github.io/3dsSdkAndroidDoc/sdk-classes#класс-threedschallengesscenario) - Запускается SDK. Пользователь проходит челленджи, мерчант ожидает успех/ошибку.
 6. [finish3dsPayment.do](https://ecomtest.sberbank.ru/doc#tag/additionalThreeDSServices/operation/finish3dsPayment) - Запрос предназначен для передачи результата 3DS аутентификации Плательщиа при прямом взаимодействии с сервером ACS.
 
 ##### Подробнее о пункте 3.
@@ -62,13 +63,13 @@ Sdk3DS.getInstance().launchSDK(
 > challengesData - экземпляр класса получить параметры которого можно из [finish3dsMethod.do](https://ecomtest.sberbank.ru/doc#tag/additionalThreeDSServices/operation/finish3dsMethod)
 
 
-## Быстрый сценарий
+## Быстрый сценарий для SDK
 
 Включает в себя следующий флоу из методов:
 
 1. [register.do](https://ecomtest.sberbank.ru/doc#tag/basicServices/operation/register) - Запрос предназначен для регистрации (создания) заказа в Шлюзе. При успешной обработке запроса заказу присваивается номер (идентификатор), уникальный в рамках Шлюза. Метод используется для регистрации заказа с последующией оплатой любым способом.
 2. [paymentOrder.do](https://ecomtest.sberbank.ru/doc#tag/paymentServices/operation/paymentOrder) - Запрос предназначен для блокировки средств на карте Плательщика для проведения дальнейших расчетов между банками-участниками.
-3. Работа 3DS SDK со сценарием [ThreedsChallengesScenario](https://sdkpay.github.io/3dsSdkAndroidDoc/sdk_classes#Класс_ThreedsChallengesScenario) - Запускается SDK. Пользователь проходит челленджи, мерчант ожидает успех/ошибку.
+3. Работа 3DS SDK со сценарием [ThreedsChallengesScenario](https://sdkpay.github.io/3dsSdkAndroidDoc/sdk_classes#класс-threedschallengesscenario) - Запускается SDK. Пользователь проходит челленджи, мерчант ожидает успех/ошибку.
 4. [finish3dsPayment.do](https://ecomtest.sberbank.ru/doc#tag/additionalThreeDSServices/operation/finish3dsPayment) - Запрос предназначен для передачи результата 3DS аутентификации Плательщиа при прямом взаимодействии с сервером ACS.
 
 ##### Подробнее о пункте 3.
