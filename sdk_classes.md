@@ -82,6 +82,26 @@ sealed class, наследники которого передаются в Thre
 
 Параметры данного класса маппятся из одноимённых сущностей ответа сервера на метод [paymentOrder.do](https://ecomtest.sberbank.ru/doc#tag/paymentServices/operation/paymentOrder) или [finish3dsMethod.do](https://ecomtest.sberbank.ru/doc#tag/additionalThreeDSServices/operation/finish3dsMethod)
 
+Пример создания ChallengesData из данных полученных через метод [paymentOrder.do](https://ecomtest.sberbank.ru/doc#tag/paymentServices/operation/paymentOrder)
+```kotlin
+ChallangesData(
+    termUrl = paymentOrderResponse.termUrl,
+    acsUrl = paymentOrderResponse.acsUrl,
+    paReq = paymentOrderResponse.paReq,
+    cReq = paymentOrderResponse.cReq,
+)
+```
+
+Пример создания ChallengesData из данных полученных через метод [finish3dsMethod.do](https://ecomtest.sberbank.ru/doc#tag/additionalThreeDSServices/operation/finish3dsMethod)
+```kotlin
+ChallangesData(
+    termUrl = finish3dsMethodResponse.termUrl,
+    acsUrl = finish3dsMethodResponse.acsUrl,
+    paReq = finish3dsMethodResponse.paReq,
+    cReq = finish3dsMethodResponse.cReq,
+)
+```
+
 > Важно! Опционально только одно из полей cReq или paReq (т.к. сервер вернёт только одно из них). Параметры termUrl и acsUrl нужно передать по наличию их в ответе сервера.
 
 
