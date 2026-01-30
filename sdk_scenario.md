@@ -17,10 +17,11 @@
 
 1. [register.do](https://ecomtest.sberbank.ru/doc#tag/basicServices/operation/register) - Запрос предназначен для регистрации (создания) заказа в Шлюзе. При успешной обработке запроса заказу присваивается номер (идентификатор), уникальный в рамках Шлюза. Метод используется для регистрации заказа с последующией оплатой любым способом.
 2. [paymentOrder.do](https://ecomtest.sberbank.ru/doc#tag/paymentServices/operation/paymentOrder) - Запрос предназначен для блокировки средств на карте Плательщика для проведения дальнейших расчетов между банками-участниками.
-3. Работа 3DS SDK со сценарием [ThreedsMethodScenario](https://sdkpay.github.io/3dsSdkAndroidDoc/sdk_classes#класс-threedsmethodscenario) - Запускается SDK. Приложение мерчанта ожидает успех/ошибку аутентификации плательщика.
-4. [finish3dsMethod.do](https://ecomtest.sberbank.ru/doc#tag/additionalThreeDSServices/operation/finish3dsMethod) - Запрос предназначен для завершения 3DS аутентификации Плательщика при проведении операции оплаты.
-5. Работа 3DS SDK со сценарием [ThreedsChallengesScenario](https://sdkpay.github.io/3dsSdkAndroidDoc/sdk-classes#класс-threedschallengesscenario) - Запускается SDK. Пользователь проходит челленджи, мерчант ожидает успех/ошибку.
-6. [finish3dsPayment.do](https://ecomtest.sberbank.ru/doc#tag/additionalThreeDSServices/operation/finish3dsPayment) - Запрос предназначен для передачи результата 3DS аутентификации Плательщиа при прямом взаимодействии с сервером ACS.
+3. Работа 3DS SDK - Вызов метода setupSession(). Метод предназначен для предварительного конфигурирования 3DS SDK.
+4. Работа 3DS SDK со сценарием [ThreedsMethodScenario](https://sdkpay.github.io/3dsSdkAndroidDoc/sdk_classes#класс-threedsmethodscenario) - Запускается SDK. Приложение мерчанта ожидает успех/ошибку аутентификации плательщика.
+5. [finish3dsMethod.do](https://ecomtest.sberbank.ru/doc#tag/additionalThreeDSServices/operation/finish3dsMethod) - Запрос предназначен для завершения 3DS аутентификации Плательщика при проведении операции оплаты.
+6. Работа 3DS SDK со сценарием [ThreedsChallengesScenario](https://sdkpay.github.io/3dsSdkAndroidDoc/sdk-classes#класс-threedschallengesscenario) - Запускается SDK. Пользователь проходит челленджи, мерчант ожидает успех/ошибку.
+7. [finish3dsPayment.do](https://ecomtest.sberbank.ru/doc#tag/additionalThreeDSServices/operation/finish3dsPayment) - Запрос предназначен для передачи результата 3DS аутентификации Плательщиа при прямом взаимодействии с сервером ACS.
 
 ##### Подробнее о пункте 3.
 
@@ -69,8 +70,9 @@ Sdk3DS.getInstance().launchSDK(
 
 1. [register.do](https://ecomtest.sberbank.ru/doc#tag/basicServices/operation/register) - Запрос предназначен для регистрации (создания) заказа в Шлюзе. При успешной обработке запроса заказу присваивается номер (идентификатор), уникальный в рамках Шлюза. Метод используется для регистрации заказа с последующией оплатой любым способом.
 2. [paymentOrder.do](https://ecomtest.sberbank.ru/doc#tag/paymentServices/operation/paymentOrder) - Запрос предназначен для блокировки средств на карте Плательщика для проведения дальнейших расчетов между банками-участниками.
-3. Работа 3DS SDK со сценарием [ThreedsChallengesScenario](https://sdkpay.github.io/3dsSdkAndroidDoc/sdk_classes#класс-threedschallengesscenario) - Запускается SDK. Пользователь проходит челленджи, мерчант ожидает успех/ошибку.
-4. [finish3dsPayment.do](https://ecomtest.sberbank.ru/doc#tag/additionalThreeDSServices/operation/finish3dsPayment) - Запрос предназначен для передачи результата 3DS аутентификации Плательщиа при прямом взаимодействии с сервером ACS.
+3. Работа 3DS SDK - Вызов метода setupSession(). Метод предназначен для предварительного конфигурирования 3DS SDK.
+4. Работа 3DS SDK со сценарием [ThreedsChallengesScenario](https://sdkpay.github.io/3dsSdkAndroidDoc/sdk_classes#класс-threedschallengesscenario) - Запускается SDK. Пользователь проходит челленджи, мерчант ожидает успех/ошибку.
+5. [finish3dsPayment.do](https://ecomtest.sberbank.ru/doc#tag/additionalThreeDSServices/operation/finish3dsPayment) - Запрос предназначен для передачи результата 3DS аутентификации Плательщиа при прямом взаимодействии с сервером ACS.
 
 ##### Подробнее о пункте 3.
 
@@ -96,3 +98,9 @@ Sdk3DS.getInstance().launchSDK(
 
 Если метод [paymentOrder.do](https://ecomtest.sberbank.ru/doc#tag/paymentServices/operation/paymentOrder) вернул cReq или paReq, то выбираем второй сценарий. 
 В противном случае cReq или paReq мы получаем из метода [finish3dsMethod.do](https://ecomtest.sberbank.ru/doc#tag/additionalThreeDSServices/operation/finish3dsMethod) первого сценария.
+
+## Подробнее о методе Sdk3DS.getInstance().setupSession()
+
+Данный метод требуется вызывать каждый раз после пункта 2 каждого из сценариев, то есть после вызова метода [paymentOrder.do](https://ecomtest.sberbank.ru/doc#tag/paymentServices/operation/paymentOrder).
+
+Данная функция служит для различия сессий при использовании Sdk3DS.
