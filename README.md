@@ -1,6 +1,6 @@
 # [ThreedsSdkAndroidDoc](https://sdkpay.github.io/3dsSdkAndroidDoc/)
 
-#### [Сценарии работы с SDK](https://sdkpay.github.io/3dsSdkAndroidDoc/sdk_scenario) | [Сущности и классы](https://sdkpay.github.io/3dsSdkAndroidDoc/sdk_classes) | [Актуальная версия SDK](https://sdkpay.github.io/3dsSdkAndroidDoc/sdk_version) | [Различия_версий SDK](https://sdkpay.github.io/3dsSdkAndroidDoc/sdk_differences)
+#### [Сценарии работы с SDK](https://sdkpay.github.io/3dsSdkAndroidDoc/sdk_scenario) | [Сущности и классы](https://sdkpay.github.io/3dsSdkAndroidDoc/sdk_classes) | [Актуальная версия SDK](https://sdkpay.github.io/3dsSdkAndroidDoc/sdk_version) | [Различия версий SDK](https://sdkpay.github.io/3dsSdkAndroidDoc/sdk_differences)
 
 <br>
 
