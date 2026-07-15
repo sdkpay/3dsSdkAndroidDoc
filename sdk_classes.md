@@ -53,6 +53,10 @@ sealed interface, наследники которого будут отправ�
 
 Класс, экземпляр которого будет отправляться в лямбду класса ThreedsSdkMerchantOptionsConfig при успешном выполнении пункта 3 [базового сценария](https://sdkpay.github.io/3dsSdkAndroidDoc/sdk_scenario#базовый-сценарий-для-sdk)
 
+### Класс FailedThreedsPayment
+
+Класс, экземпляр которого будет отправляться в лямбду класса ThreedsSdkMerchantOptionsConfig при неуспешном выполнении пункта 3 [базового сценария](https://sdkpay.github.io/3dsSdkAndroidDoc/sdk_scenario#базовый-сценарий-для-sdk)
+
 ### Класс SdkError
 
 Класс, экземпляр которого будет отправляться в лямбду класса ThreedsSdkMerchantOptionsConfig при ошибках в работе SDK
