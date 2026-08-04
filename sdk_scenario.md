@@ -42,3 +42,9 @@ Sdk3DS.getInstance().launchSDK(
 ## Схема работы
 
 ![Схема](schema.png)
+
+## FAQ
+
+##### SDK открывается, но не на вводе кода банка, а на вводе данных карты. Так и должно быть?
+
+Нет. Самая частая проблема, что выбран неверный formUrl. Был использован formUrl из метода [register.do](https://ecomtest.sberbank.ru/doc#tag/basicServices/operation/register), а не из [paymentOrder.do](https://ecomtest.sberbank.ru/doc#tag/paymentServices/operation/paymentOrder). Передавайте в SDK formUrl из [paymentOrder.do](https://ecomtest.sberbank.ru/doc#tag/paymentServices/operation/paymentOrder) и оно будет открываться на вводе кода банка для подтверждения оплаты.
